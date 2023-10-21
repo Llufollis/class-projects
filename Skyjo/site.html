@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Skyjo.io</title>
+  <link href="style.css" rel="stylesheet">
+  <script src="script.js"></script>
+</head>
+<body>
+	<div class="param" align="center">
+		<button onclick="start()">Create</button>
+		<button onclick="document.getElementById('game').remove()">Delete</button>
+		<fieldset>
+			<legend><b>Selectioner le nombre de joueur:</b></legend>
+			<input type="radio" id="Train" name="Btn" value="2">
+				<label for="Btn2">Entrainement</label>
+			<input type="radio" id="Deux" name="Btn" value="2">
+				<label for="Btn2">Deux</label>
+			<input type="radio" id="Trois" name="Btn" value="3">
+				<label for="Btn3">Trois</label>
+			<input type="radio" id="Quatre" name="Btn" value="4" checked>
+				<label for="Btn4">Quatre</label>
+
+		</fieldset>
+		</br>
+		<a class="regle" href="REGLE_DU_JEU.pdf" target = "_blank">Les regles du jeu sont ici.</a>
+	</div>
+</body>
+</html>
