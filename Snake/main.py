@@ -6,14 +6,14 @@ from random import randint
 
 class Snake:
     """
-    cree un serpent
+    crée un serpent
     Entree : int
     Sortie : None
     """
 
     def __init__(self, v, s, cs):
         """
-        Parametre le serpent
+        Paramètre le serpent.
         Entree : self, int
         Sortie : None
         """
@@ -27,7 +27,7 @@ class Snake:
 
     def __getitem__(self, item):
         """
-        renvoit certaines informations sur la liste __snake
+        Renvoit les informations de la liste __snake.
         Entree : self, int
         Sortie : list, int, class, None
         """
@@ -45,53 +45,45 @@ class Snake:
 
     def diy(self, x, color):
         """
-        change la couleur du serpent
+        Change la couleur du serpent.
         Entree : self, int, str
         Sortie : None
         """
         if x >= 1:
             canvas.itemconfig(self.__snake[x], fill=color)
-            canvas.after(50, lambda: self.diy(x - 1, color))  # prochaine cellule
+            canvas.after(50, lambda: self.diy(x - 1, color))
         return None
 
     def move(self, color):
         """
-        fait avancer le serpent et informe si le serpent sort du cadre
+        Fait avancer le serpent.
         Entree : self
-        Sortie : bool
+        Sortie : None
         """
-        # for i in range(len(self.__snake) - 1, 0, -1):  # bouge le corp du serpent
-        #     canvas.move(self.__snake[i], canvas.coords(self.__snake[i - 1])[0] - canvas.coords(self.__snake[i])[0],
-        #                 canvas.coords(self.__snake[i - 1])[1] - canvas.coords(self.__snake[i])[1])
-        if self.__cells_to_wait <= 0:
             canvas.delete(self.__snake.pop(-1))
         else:
             self.__cells_to_wait -= 1
 
-        # bouge la tête du serpent
+        # Bouge la tête du serpent.
         head_coo = canvas.coords(self.__snake[0])
         canvas.itemconfig(self.__snake[0], fill="#E0F8D0")
         if self.__direction == "Up":
-            # canvas.move(self.__snake[0], 0, -self.__velocity)
             self.__snake = [canvas.create_rectangle(head_coo[0], head_coo[1] - self.__velocity, head_coo[2],
                                                     head_coo[3] - self.__velocity, width=2, outline=color,
                                                     fill="#081820")] + self.__snake
 
         elif self.__direction == "Down":
-            # canvas.move(self.__snake[0], 0, self.__velocity)
             self.__snake = [canvas.create_rectangle(head_coo[0], head_coo[1] + self.__velocity, head_coo[2],
                                                     head_coo[3] + self.__velocity, width=2, outline=color,
                                                     fill="#081820")] + self.__snake
 
         elif self.__direction == "Left":
-            # canvas.move(self.__snake[0], -self.__velocity, 0)
             self.__snake = [canvas.create_rectangle(head_coo[0] - self.__velocity, head_coo[1],
                                                     head_coo[2] - self.__velocity,
                                                     head_coo[3], width=2, outline=color,
                                                     fill="#081820")] + self.__snake
 
         elif self.__direction == "Right":
-            # canvas.move(self.__snake[0], self.__velocity, 0)
             self.__snake = [canvas.create_rectangle(head_coo[0] + self.__velocity, head_coo[1],
                                                     head_coo[2] + self.__velocity,
                                                     head_coo[3], width=2, outline=color,
@@ -101,7 +93,7 @@ class Snake:
 
     def change_dir(self, event):
         """
-        change la direction de la tête et empeche le retour arriere
+        Change la direction de la tête et empêche le retour en arrière.
         Entree : self, event
         Sortie : None
         """
@@ -124,22 +116,16 @@ class Snake:
 
     def add_cells(self, x):
         """
-        ajoute x cellules au serpent
+        Ajoute x cellules au serpent;
         Entree : self, int
         Sortie : None
         """
-        # for i in range(x):
-        #     self.__snake.append(canvas.create_rectangle(canvas.coords(self.__snake[-1])[0],
-        #                                                 canvas.coords(self.__snake[-1])[1],
-        #                                                 canvas.coords(self.__snake[-1])[2],
-        #                                                 canvas.coords(self.__snake[-1])[3],
-        #                                                 width=2, outline='#081820', fill="#E0F8D0"))
         self.__cells_to_wait = x
         return None
 
     def self_eater(self, pomme):
         """
-        verifie que le serpent ne rentre pas en contact avec lui même
+        Verifie que le serpent ne rentre pas en contact avec lui-même ou avec le bord.
         Entree : self, instance de apple
         Sortie : bool
         """
@@ -154,12 +140,12 @@ class Snake:
 
 class Apple:
     """
-    cree une pomme aux coordonnée x, y et lui donne un type
+    Crée une pomme aux coordonnées x, y et lui donne un type.
     """
 
     def __init__(self, s):
         """
-        parametre la class
+        Paramètre la classe.
         Entree : self, int
         Sortie : None
         """
@@ -176,7 +162,7 @@ class Apple:
 
     def __getitem__(self, item):
         """
-        revoit des informations sur l'instance
+        Revoit les informations de l'instance.
         Entree : self, int
         Sortie : list, instance, str
         """
@@ -190,7 +176,7 @@ class Apple:
 
     def delete_a(self):
         """
-        suprime la pomme
+        Suprime la pomme.
         Entree : self
         Sortie : None
         """
@@ -200,7 +186,7 @@ class Apple:
 
 def info():
     """
-    affiche une boite d'information
+    Affiche une boite d'information.
     Entree : None
     Sortie : None
     """
@@ -215,24 +201,24 @@ def info():
 
 def main():
     """
-    gere le jeu
+    Gére le jeu.
     Entree : None
     Sortie : None
     """
 
     def start(diff):
         """
-        commence le jeu
+        Commence le jeu.
         Entree : int
         Sortie : None
         """
-        #  reset le canva
+        #  Reset le canva.
         canvas.delete("all")
         canvas.create_image(0, 0, image=fond, anchor="nw")
         canvas.create_window(260, 565, window=label)
         canvas.create_rectangle(20, 20, 520, 520, outline="red")
 
-        #  cree les parametre du jeu
+        #  Crée le serpent.
         if diff == 1 or diff == 0:
             serpent = Snake(6, 6, 5)
             diff = "facile"
@@ -245,21 +231,21 @@ def main():
         pomme = Apple(10)
         score = 0
 
-        #  attache les touches aux actions
+        #  Attache les touches aux actions.
         root.bind("<Up>", serpent.change_dir)
         root.bind("<Down>", serpent.change_dir)
         root.bind("<Right>", serpent.change_dir)
         root.bind("<Left>", serpent.change_dir)
         label.config(text=f'score: {score} Taille: {serpent[1]}')
 
-        #  lance le jeu
+        #  Lance le jeu.
         game(serpent, pomme, score, diff)
 
         return None
 
     def game(serpent, pomme, score, diff):
         """
-        gere les deplacement du serpent, l'apparition de la pomme et la fin du jeu
+        Gére les deplacements du serpent, l'apparition de la pomme et la fin du jeu.
         Entree : instance de serpent, de pomme, int
         Sortie : None
         """
@@ -300,9 +286,9 @@ def main():
             canvas.after(60, lambda: game(serpent, pomme, score, diff))
         return None
 
-    def diff_change(*args):  # scale met par defaut un parametre
+    def diff_change(*args):
         """
-        change le texte de diff_affi
+        Change le texte de diff_affi.
         Entree : event
         Sortie : None
         """
@@ -314,10 +300,10 @@ def main():
             diff_affi.configure(text="Difficulté: HARDCORE", foreground="red")
         return None
 
-    #  reset la canva
+    #  Reset le canva.
     canvas.delete("test")
 
-    #  tente de recuperer l'ancien meilleur score
+    #  Tente de recupérer l'ancien meilleur score.
     try:
         with open("data/save.txt", "r") as file:
             save_s = file.read()
@@ -327,7 +313,7 @@ def main():
             file.write("0;None")
             text_score = "Meilleur score:\nVous n'avez pas de scores pour le moment\n lancez une partie :) !"
 
-    #  configure les boutons
+    #  Configure les boutons.
     best_score = ttk.Label(canvas, text=text_score,
                            font=("Helvetica", 14), background="#E0F8D0", justify='center')
     label = ttk.Label(
@@ -343,7 +329,7 @@ def main():
         text='Difficulté: Facile',
         font=("Helvetica", 14), background="#E0F8D0", foreground="green")
 
-    #  affiche les widgets
+    #  Affiche les widgets.
     canvas.create_window(270, 70, window=best_score)
     canvas.create_window(270, 565, window=label)
     canvas.create_window(499, 563, window=info_button)
@@ -356,25 +342,25 @@ def main():
 
 
 if __name__ == '__main__':
-    # création de la fenetre
+    # Création de la fenetre.
     root = tk.Tk()
     root.title("Snack")
     root.iconphoto(False, tk.PhotoImage(file='data/logo.png'))
     root.resizable(False, False)
 
-    # definition du canva
+    # Définition du canva.
     fond = tk.PhotoImage(file="data/fond.png")
     canvas = tk.Canvas(root, width=540, height=600, bg='black')
     canvas.pack(fill="both", expand=True)
 
-    # style des boutons (ttk)
+    # Style des boutons (ttk).
     style = ttk.Style(root)
     style.theme_use('clam')
     style.configure('my.TButton', bordercolor="#081820", bg="#e0f8d0")
     style.configure('info.Tbutton', borderwidth=0, bordercolor="#081820", bg="#e0f8d0")
 
-    #  demarre le jeu
+    #  Démarre le jeu.
     main()
 
-    # boucle de la fenetre
+    # Boucle de la fenêtre.
     root.mainloop()
