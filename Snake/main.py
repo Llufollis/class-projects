@@ -60,6 +60,7 @@ class Snake:
         Entree : self
         Sortie : None
         """
+        if self.__cells_to_wait <= 0:
             canvas.delete(self.__snake.pop(-1))
         else:
             self.__cells_to_wait -= 1
