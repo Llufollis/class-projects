@@ -16,4 +16,4 @@
 - **Web project**: A website explaining the work of CISO (Chief Information Security Officer) written in HTML and a touch of Javascript
 
 > [!NOTE] 
-Each of this projects took time to make, so respect my work even if they are poorly coded and in French.
+I made these projects during my 1st year of NSI (Numérique et Science de L'Informatique), so do not expect them to be well coded or to repect conventions (btw they are in French).
