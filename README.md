@@ -2,7 +2,7 @@
 
 - **Skyjo**: A Skyjo game written in HTML and pure Javascript.
 
-- **Snake**: A snake game written in Python. To run this project you will need:
+- **Snake**: A snake game written in Python.
 
  - **Cosines Similarity**: kinda self explaining, calculate the Cosines Similarity between two documents, can also clean texts by removing things like pronouns and punctuation. This folder also some books I made tests with
 
