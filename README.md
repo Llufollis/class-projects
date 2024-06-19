@@ -9,6 +9,8 @@
  - **Crash 'em all**: Don't know why I made that, it's a 'space physics' simulator where each planets are attracted by the others using formulas I probably don't understand. There is some funny bugs.
 
  - **Maze**: it just carve a random maze and resolve it, you can also save the mazes to binary files.
+ 
+ - **Phone Lookup**: Allow you to search for a phone number's operator. Work with Arcep databases, so only phone numbers located in France will work. I made it because I wanted a way to easly differentiate legitimate call from scams and ads, as scammers and advertisers often call from call centers. So when the operator is something like 'Menytel France' it's 90% a scam or an ad.
 
 > [!NOTE] 
-Probably badly coded + in French
+French
