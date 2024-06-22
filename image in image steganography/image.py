@@ -40,8 +40,13 @@ def return_image(img, depth):
     img_a = np.array(img)
     for y in range(len(img_a)):
         for x in range(len(img_a[0])):
+            bits = format(img_a[y][x][0], "0>8b")[8 - depth:]
+            if depth:
+                color = int(bits) * 255
+            else:
+                color = 255 if bits.count('1') >= (depth // 2) else 0
             for i in range(3):
-                new_image[y][x][i] = int(bin(img_a[y][x][i])[-1]) * 255
+                new_image[y][x][i] = color
     return Image.fromarray(new_image)
 
 
@@ -75,11 +80,11 @@ def create_image(original="", output="", depth=0, *, hide=""):
     Sortie: None
     """
     img_orig = Image.open(original)
-    if hide != "":
+    if hide == "":
+        img = return_image(img_orig, depth)
+    else:
         img_hide = Image.open(hide)
         img = merge_image(img_orig, img_hide, depth)
-    else:
-        img = return_image(img_orig, depth)
     img.save(output)
     return None
 
@@ -103,3 +108,4 @@ if __name__ == "__main__":
         if path2 == "":
             path2 = path1
         create_image(original=path1, depth=profondeur, output=path2)
+        
