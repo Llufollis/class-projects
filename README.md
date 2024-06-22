@@ -12,7 +12,7 @@
  
  - **Phone Lookup**: Allow you to search for a phone number's operator. Work with Arcep databases, so only phone numbers located in France will work. I made it because I wanted a way to easly differentiate legitimate call from scams and ads, as scammers and advertisers often call from call centers. So when the operator is something like 'Menytel France' it's 90% a scam or an ad.
  
- - **image in image stenography**: Allow you to hide/unhide an image in a another base image by modifying the last n-bits of each color in each pixel.
+ - **image in image steganography**: Allow you to hide/unhide an image in a another base image by modifying the last n-bits of each color in each pixel.
 
 > [!NOTE] 
 French
