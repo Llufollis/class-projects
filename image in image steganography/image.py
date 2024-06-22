@@ -41,7 +41,7 @@ def return_image(img, depth):
     for y in range(len(img_a)):
         for x in range(len(img_a[0])):
             bits = format(img_a[y][x][0], "0>8b")[8 - depth:]
-            if depth:
+            if depth == 1:
                 color = int(bits) * 255
             else:
                 color = 255 if bits.count('1') >= (depth // 2) else 0
