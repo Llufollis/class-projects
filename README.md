@@ -17,10 +17,11 @@
  - **Audio Story Generator**: It can create with a few words a whole story and read it. It use Llama 3 and ljspeech and it run locally on your computer. I created a personalized system prompt so Llama 3 is way more efficient and accurate. The audio can sound a little weird, but it's because I need to separate the token array in 500 tokens length token arrays so the TTS AI don't spill out thousands of errors because I gave it a array of 2000 tokens. You can use install.py to install every needed packages/create every needed folders/install AIs I used and it should work out of the box when you execute ui.py.
 
 
-https://github.com/Llufollis/things-that-do-funny-things/assets/122542949/03bef73d-f570-4544-9201-d86ef83ba7c1
+https://github.com/Llufollis/things-that-do-funny-things/assets/122542949/c264d527-2718-423a-af09-68b7ef4b5d39
 
 
-https://github.com/Llufollis/things-that-do-funny-things/assets/122542949/2f5d4d37-bff6-4226-8fa1-60856ad508a4
+https://github.com/Llufollis/things-that-do-funny-things/assets/122542949/f9b9390b-7b01-423a-afa8-ae87dce25880
+
 
 
 > [!NOTE] 
