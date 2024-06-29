@@ -14,5 +14,7 @@
  
  - **image in image steganography**: Allow you to hide/unhide an image in a another base image by modifying the last n-bits of each color in each pixel. Always save the output to .png.
 
+ - **Audio Story Generator**: It can create with a few words a whole story and read it. It use Llama 3 and ljspeech and it run locally on your computer. I created a personalized system prompt so Llama 3 is way more efficient and accurate. The audio can sound a little weird, but it's because I need to separate the token array in 500 tokens length token arrays so the TTS AI don't spill out thousands of errors because I gave it a array of 2000 tokens. You can use install.py to install every needed packages/create every needed folders/install AIs I used and it should work out of the box when you execute ui.py.
+
 > [!NOTE] 
 French
